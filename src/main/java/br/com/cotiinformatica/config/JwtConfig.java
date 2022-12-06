@@ -18,9 +18,7 @@ public class JwtConfig extends WebSecurityConfigurerAdapter {
 
 		http.csrf().disable().addFilterAfter(new JwtFilter(), UsernamePasswordAuthenticationFilter.class)
 				.authorizeRequests()
-				.antMatchers(HttpMethod.POST, "/api/acessar-conta").permitAll()
-				.antMatchers(HttpMethod.POST, "/api/criar-conta").permitAll()
-				.antMatchers(HttpMethod.POST, "/api/recuperar-senha").permitAll()
+				.antMatchers(HttpMethod.POST, "/api/usuarios/**").permitAll()
 				.antMatchers(HttpMethod.OPTIONS, "/**")
 				.permitAll().anyRequest().authenticated();
 	}
